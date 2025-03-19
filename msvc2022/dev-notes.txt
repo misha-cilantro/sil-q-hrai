@@ -1,0 +1,4 @@
+The function that determines minimum depth is
+
+int min_depth(void) in cmd2.c
+
