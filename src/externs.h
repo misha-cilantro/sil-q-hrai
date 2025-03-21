@@ -1083,6 +1083,9 @@ extern const char tutorial_late_death_text[][100];
 extern const char entry_poetry[][100];
 extern const char throne_poetry[][100];
 extern const char ultimate_bug_text[][100];
+extern const char mandos_elf[][100];
+extern const char mandos_dwarf[][100];
+extern const char mandos_human[][100];
 extern void pause_with_text(const char desc[][100], int row, int col);
 
 /*
