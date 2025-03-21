@@ -3,7 +3,48 @@ Sil-Q is a computer role-playing game with a strong emphasis on discovery and
 tactical combat. It has a simple but rich combat system which allows for a
 great variety of choice.
 
-Sil-Q continues the development of Sil which hasn't been updated for a while.
+## Sil-Q hrai
+
+hrai - Quenya for easy (probably, I only searched a little)
+
+I adore the gameplay of Sil-Q, but I'm terrible at it. I've created Sil-Q hrai
+as an easy mode version of Sil-Q so you can adjust difficulty and enjoy the 
+fantastic gameplay and emmaculate First Age vibes without dying 30 minutes
+in EVERY. SINGLE. TIME.
+
+There are several dials to adjust difficulty:
+
+1. Dungeon pressure. (DONE)
+   Sil-Q forces you lower and lower into the dungeon as you play so prevent
+   grinding. But this is hrai, and we support a little grinding!
+   
+   On character creation, select dungeon pressure 1 to 5.
+
+   1 is no pressure at all, you only ever go down one level.
+   2 lowers pressure by 1/4.
+   3 lowers pressure by 1/3.
+   4 lowers pressure by 1/2.
+   5 is standard Sil-Q pressure.
+
+2. Elven ressurection. (PLANNED)
+   The First Children do not leave the world on death, but go to the halls of Mandos
+   where they may rest before bodily ressurecting in the world.
+
+   This means when you die playing an elf you may choose to ressurect. You will start
+   back on the first floor with all your skills etc., but your equipment will be lost.
+
+3. Restore to start of floor. (PLANNED)
+   On character creation, choose whether to allow restoring to the start of the floor
+   on death. Every time you start a floor, a save game is made that you can restore to.
+
+   This option overrides elven ressurection.
+
+For faireness, your dungeon pressure, number of elven ressurections, and/or restore
+on death is recorded on your character sheet so that everyone knows you're a not
+a Serious Business Roguelike player (like me!) :)
+
+(I beat Angband as a teen using my brother's save game backup batch file. Max cheat.
+Still one of my iconic childhood gaming experiences, idc. Good gameplay is good gameplay.)
 
 ## Compiling Instructions
 
