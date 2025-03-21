@@ -1277,15 +1277,7 @@ void display_player_xtra_info(int mode)
     if (p_ptr->wt > 0)
     {
         Term_putstr(col + 8, 4, -1, ahw_attr, format("%4d", (int)p_ptr->wt));
-    }
-
-    /* Dungeon Pressure */
-    if (p_ptr->dungeon_pressure > 0)
-    {
-        col = 56; // little bit 'o space over on the upper right
-        Term_putstr(col, 0, -1, TERM_L_UMBER, "Dungeon Pressure:");
-        Term_putstr(col, 1, -1, TERM_L_UMBER, p_ptr->dungeon_pressure);
-    }
+    }    
 
 
     /* Left */
@@ -1636,6 +1628,19 @@ static void display_player_misc_info(void)
         /* Title */
         put_str("House", 4, 1);
         c_put_str(TERM_L_BLUE, c_name + hp_ptr->short_name, 4, 8);
+    }
+
+    /* Dungeon Pressure */
+    if (p_ptr->dungeon_pressure)
+    {
+        cptr txt = "Dungeon pressure: ";
+        
+        char buf[80];
+        sprintf(buf, "%2d", p_ptr->dungeon_pressure);
+        
+        Term_putstr(1, 5, -1, TERM_L_UMBER, txt);
+        Term_putstr(
+            strlen(txt), 5, -1, TERM_L_UMBER, buf);
     }
 }
 
