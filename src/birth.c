@@ -1945,22 +1945,25 @@ static bool get_difficulty(void)
         /* Erase screen */
         clear_from(0);
 
-        put_str(
-            "Select dungeon pressure 1 - 5. Higher numbers force you lower faster.",
+        c_put_str(TERM_L_UMBER,
+            "Select dungeon pressure 1 - 5. Higher numbers force you lower "
+            "faster.",
             0, 0);
+        
         put_str("1 - no pressure, grind all you like until the breaking of "
                 "Morgoth's Ring and the remaking of Arda.",
-            1, 0);
+            2, 0);
+        
         put_str("5 - Sil-Q pressure. The darkness of Morgoth closes in; you "
                 "must be swift.",
-            2, 0);
+            4, 0);
 
         /* Prompt */
         Term_putstr(QUESTION_COL, INSTRUCT_ROW + 1, -1, TERM_SLATE,
-            "Enter defaults to 1, no pressure.");
+            "Enter = 1, no pressure.");
 
         Term_putstr(QUESTION_COL, INSTRUCT_ROW + 2, -1, TERM_SLATE,
-            "1 - 5?");
+            "1 - 5? ");
 
         /* Query */
         query2 = inkey();

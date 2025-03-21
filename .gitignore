@@ -44,3 +44,4 @@ lib/*.log
 lib/sil-q.vcxproj.FileListAbsolute.txt
 *.idb
 *.user
+sil.exe
