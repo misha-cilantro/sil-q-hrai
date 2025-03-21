@@ -5330,7 +5330,32 @@ const char mandos_elf[][100]
           { "" } };
 
 /*
+ * hrai: print out text as with pause_with_text, but only allow exiting
+ * when player presses one of the chars in allowed_options.
+ * 
+ * Params:
+ * 
+ * desc: initial poetry
+ * row: row to start desc on
+ * col: column to start desc on
+ * 
+ * render_options_callback: pointer to a void function that takes no arguments; 
+ *                          use this to render options however you want using 
+ *                          Term_putstr or whatever.
+ * 
+ * allowed_options: the allowed characters options to select
+ * on_escape: character to return on escape
+ * 
+ * return value: the char selected from allowed_options by the player
+ */
+char query_with_text(const char desc[][100], int row, int col, const callback_no_arguments render_options_callback, const char allowed_options[10], const char on_escape)
+{
+    return '0';
+}
+
+/*
  * Show the poetry on entering Morgoth's Throne Room
+ * hrai: also used on death
  */
 void pause_with_text(const char desc[][100], int row, int col)
 {
