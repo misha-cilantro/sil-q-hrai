@@ -2897,17 +2897,17 @@ static void death_knowledge(void)
 
 static bool go_to_halls_elf(void)
 {
-    return TRUE;
+    return FALSE;
 }
 
 static void go_to_halls_dwarf(void)
 {
-    // pause_with_text(mandos_dwarf, 5, 15);
+    pause_with_text(mandos_dwarf, 5, 15);
 }
 
 static void go_to_halls_human(void)
 {
-
+    pause_with_text(mandos_human, 5, 15);
 }
 
 /*

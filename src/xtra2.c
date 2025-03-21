@@ -5295,9 +5295,9 @@ const char ultimate_bug_text[][100]
 const char mandos_dwarf[][100]
     = { { "You have perished in the darkness of Angband." },
           { "  Your soul leaves your body and travels to the" },
-          { "    Halls of Mandos. Here you will remain with your" },
+          { "    Halls of Mandos. Here you will remain" },
           { "      until Morgoth's Ring is broken." },
-          { "Then, with the great craft of your father's," },
+          { "Then, with the great craft of your fathers," },
           { "  you will help craft Arda Remade," },
           { "    free of Morgoth's dark power." },
           { "Rest now in the Earth that is your" },
@@ -5314,8 +5314,7 @@ const char mandos_human[][100]
           { "  Gift of Men to leave the circles of Arda" },
           { "    and travel to a place known only to Ilúvatar." },
           { "Though your deeds were brave, the memories of Men" },
-          { "  are short, and only the First Children will" },
-          { "    remember your doomed quest in song." },
+          { "  are short, and your doomed quest is soon forgotten." },
 
           { "" } };
 
