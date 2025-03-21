@@ -768,6 +768,9 @@ static void wr_extra(void)
     wr_s16b(p_ptr->ht);
     wr_s16b(p_ptr->wt);
 
+    /* Dungeon pressure */
+    wr_s16b(p_ptr->dungeon_pressure);
+
     /* Dump the stats (maximum and current) */
     for (i = 0; i < A_MAX; ++i)
         wr_s16b(p_ptr->stat_base[i]);

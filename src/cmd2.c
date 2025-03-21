@@ -21,6 +21,11 @@
  */
 int min_depth(void)
 {
+    if (!p_ptr->dungeon_pressure)
+    {
+        msg_debug("Dungeon pressure is 0. Something went wrong.");
+    }
+
     float pressure_adjustment = 1;
     switch (p_ptr->dungeon_pressure)
     {
