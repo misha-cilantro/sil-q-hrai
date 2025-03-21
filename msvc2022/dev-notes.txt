@@ -33,6 +33,17 @@ globals need to be placed in the externs.h file.
 
 Desired features:
 
+- Quick suicide in debug for death testing
+
+- Adjust final score by:
+  * dungeon pressure (divide the same as in min depth, 1 = 1/5)
+  * divide by number of elven resurrections
+  * divide by number of floor res * 3
+
+- Write to character sheet:
+  * number of elven res OR number of floor res (since floor res turns off elven res)
+
 - For the two elf races, allow resurrection on death. Start back at floor 0, with all experience but all items lost. (Mandos save.)
+  
 
 - Restart floor on death. (Easy save.)

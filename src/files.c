@@ -3279,6 +3279,8 @@ void do_cmd_escape(void)
 
 /*
  * Hack -- commit suicide
+ * hrai: in debug skip all the confirms
+ * for testing death stuff
  */
 void do_cmd_suicide(void)
 {
@@ -3287,6 +3289,9 @@ void do_cmd_suicide(void)
     /* Flush input */
     flush();
 
+#if MSVC_DEBUG
+    /* Skip verify */
+#else
     /* Verify */
     if (!get_check("This will destroy the current character: are you sure? "))
         return;
@@ -3298,6 +3303,7 @@ void do_cmd_suicide(void)
     prt("", 0, 0);
     if (ch != '@')
         return;
+#endif
 
     /* Commit suicide */
     p_ptr->is_dead = TRUE;

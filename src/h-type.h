@@ -57,6 +57,6 @@ typedef uint16_t u16b;
 typedef int32_t s32b;
 typedef uint32_t u32b;
 
-typedef int (*callback_no_arguments)(int, int);
+typedef int (*callback_no_arguments)();
 
 #endif /* INCLUDED_H_TYPE_H */
