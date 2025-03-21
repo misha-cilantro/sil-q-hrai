@@ -5292,6 +5292,44 @@ const char ultimate_bug_text[][100]
 
           { "" } };
 
+const char mandos_dwarf[][100]
+    = { { "You have perished in the darkness of Angband." },
+          { "  Your soul leaves your body and travels to the" },
+          { "    Halls of Mandos. Here you will remain with your" },
+          { "      until Morgoth's Ring is broken." },
+          { "Then, with the great craft of your father's," },
+          { "  you will help craft Arda Remade," },
+          { "    free of Morgoth's dark power." },
+          { "Rest now in the Earth that is your" },
+          { "  wellspring. Your bravery lives on" },
+          { "    in rune and tale." },
+
+          { "" } };
+
+const char mandos_human[][100]
+    = { { "You have perished in the darkness of Angband." },
+          { "  Your soul leaves your body and travels to the" },
+          { "    Halls of Mandos." },
+          { "But you only tarry here a while, for it is the" },
+          { "  Gift of Men to leave the circles of Arda" },
+          { "    and travel to a place known only to Ilúvatar." },
+          { "Though your deeds were brave, the memories of Men" },
+          { "  are short, and only the First Children will" },
+          { "    remember your doomed quest in song." },
+
+          { "" } };
+
+const char mandos_elf[][100]
+    = { { "You have perished in the darkness of Angband." },
+          { "  Your soul leaves your body and travels to the" },
+          { "    Halls of Mandos." },
+          { "Here you may rest among the greatest of your kind..." },
+          { "  Or if you choose, you may return bodily to Arda" },
+          { "    and resume your quest." },
+          { "What say you, elf lord?" },
+
+          { "" } };
+
 /*
  * Show the poetry on entering Morgoth's Throne Room
  */

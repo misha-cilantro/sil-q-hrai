@@ -2895,6 +2895,46 @@ static void death_knowledge(void)
     handle_stuff();
 }
 
+static bool go_to_halls_elf(void)
+{
+    return TRUE;
+}
+
+static void go_to_halls_dwarf(void)
+{
+
+}
+
+static void go_to_halls_human(void)
+{
+
+}
+
+/*
+ * hrai: all character get flavor for going to the halls of mandos
+ * elven characters can choose to bodily ressurect and restart
+ * the dungeon with all skills etc. but only starting items
+ */
+static bool go_to_halls(void)
+{
+    byte_hack race = p_ptr->prace;
+
+    if (is_elf(race))
+    {
+        return go_to_halls_elf();
+    }
+    else if (is_dwarf(race))
+    {
+        go_to_halls_dwarf();
+    }
+    else if (is_human(race))
+    {
+        go_to_halls_human();
+    }
+
+    return FALSE;
+}
+
 /*
  * Actually play a game.
  *
@@ -3155,15 +3195,8 @@ void play_game(bool new_game)
         /* Accidental Death */
         if (p_ptr->playing && p_ptr->is_dead)
         {
-            /* hrai: elven ressurection */
-            if (is_elf(p_ptr->prace))
-            {
-                // hrai TODO
-            }
-            else // flavor for mortal races
-            {
-                // hrai TODO
-            }
+            // hrai: elves can ressurect, other races still get flavor text
+            bool is_elven_ressurection = go_to_halls();
 
             /* Mega-Hack -- Allow player to cheat death */
             // hrai TODO: remove all this, we allow for more fun cheating now /flex
