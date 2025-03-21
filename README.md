@@ -9,7 +9,7 @@ great variety of choice.
 
 I adore the gameplay of Sil-Q, but I'm terrible at it. I've created Sil-Q hrai
 as an easy mode version of Sil-Q so you can adjust difficulty and enjoy the 
-fantastic gameplay and emmaculate First Age vibes without dying 30 minutes
+fantastic gameplay and immaculate First Age vibes without dying 30 minutes
 in EVERY. SINGLE. TIME.
 
 There are several dials to adjust difficulty:
@@ -26,11 +26,11 @@ There are several dials to adjust difficulty:
    4 lowers pressure by 1/2.
    5 is standard Sil-Q pressure.
 
-2. **Elven ressurection.** (PLANNED)
+2. **Elven resurrection.** (IN PROGRESS)
    The First Children do not leave the world on death, but go to the halls of Mandos
    where they may rest before bodily ressurecting in the world.
 
-   This means when you die playing an elf you may choose to ressurect. You will start
+   This means when you die playing an elf you may choose to resurrect. You will start
    back on the first floor with all your skills etc., but your equipment will be lost.
 
 3. **Restore to start of floor.** (PLANNED)
