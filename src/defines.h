@@ -42,12 +42,13 @@
 /*
  * Name of the version/variant
  */
-#define VERSION_NAME "Sil-Q"
+#define VERSION_NAME "Sil-Q hrai"
 
 /*
  * Current version string
+ * Based on Sil-Q 1.5.0
  */
-#define VERSION_STRING "1.5.0"
+#define VERSION_STRING "0.1"
 
 /*
  * Current version numbers
