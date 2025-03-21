@@ -5324,7 +5324,7 @@ const char mandos_elf[][100]
           { "  Your soul leaves your body and travels to the" },
           { "    Halls of Mandos." },
           { "Here you may rest among the greatest of your kind..." },
-          { "  Or if you choose, you may return bodily to Arda" },
+          { "  Or if you choose you may return bodily to Arda" },
           { "    and resume your quest." },
           { "What say you, elf lord?" },
 
