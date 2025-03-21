@@ -753,6 +753,9 @@ static errr rd_extra(void)
     rd_s16b(&p_ptr->ht);
     rd_s16b(&p_ptr->wt);
 
+    /* Dungeon pressure */
+    rd_s16b(&p_ptr->dungeon_pressure);
+
     /* Read the stat info */
     for (i = 0; i < A_MAX; i++)
         rd_s16b(&p_ptr->stat_base[i]);
