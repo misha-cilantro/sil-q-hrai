@@ -3158,7 +3158,7 @@ void play_game(bool new_game)
             /* hrai: elven ressurection */
             if (is_elf(p_ptr->prace))
             {
-
+                // hrai TODO
             }
             else // flavor for mortal races
             {

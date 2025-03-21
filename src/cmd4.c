@@ -765,6 +765,16 @@ bool is_elf(byte_hack prace)
     return ((prace == 0) || (prace == 1));
 }
 
+bool is_dwarf(byte_hack prace)
+{ 
+    return (prace == 2); 
+}
+
+bool is_human(byte_hack prace)
+{ 
+    return (prace == 3);
+}
+
 int elf_bane_bonus(monster_type* m_ptr)
 {
     monster_race* r_ptr;
