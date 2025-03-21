@@ -27,6 +27,10 @@ p_ptr = the player pointer
 
 --
 
+globals need to be placed in the externs.h file.
+
+--
+
 Desired features:
 
 - For the two elf races, allow resurrection on death. Start back at floor 0, with all experience but all items lost. (Mandos save.)
