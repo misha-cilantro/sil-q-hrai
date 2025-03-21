@@ -1279,6 +1279,15 @@ void display_player_xtra_info(int mode)
         Term_putstr(col + 8, 4, -1, ahw_attr, format("%4d", (int)p_ptr->wt));
     }
 
+    /* Dungeon Pressure */
+    if (p_ptr->dungeon_pressure > 0)
+    {
+        col = 56; // little bit 'o space over on the upper right
+        Term_putstr(col, 0, -1, TERM_L_UMBER, "Dungeon Pressure:");
+        Term_putstr(col, 1, -1, TERM_L_UMBER, p_ptr->dungeon_pressure);
+    }
+
+
     /* Left */
     col = 1;
 

@@ -13,10 +13,31 @@
 /*
  * Determines the shallowest a player is allowed to go.
  * As time goes on, they are forced deeper and deeper.
+ * 
+ * hrai:
+ * We now adjust the pressure by the player's dungeon_pressure
+ * value, where 1 is no pressure at all, and 5 is standard
+ * sil-q pressure.
  */
 int min_depth(void)
 {
-    int min_depth_value = min_depth_counter / 100000 + 1;
+    float pressure_adjustment = 1;
+    switch (p_ptr->dungeon_pressure)
+    {
+    case 2:
+        pressure_adjustment = 4;
+        break;
+
+    case 3:
+        pressure_adjustment = 3;
+        break;
+
+    case 4:
+        pressure_adjustment = 2;
+        break;
+    }
+
+    int min_depth_value = min_depth_counter / pressure_adjustment / 100000 + 1;
 
     // bounds on the base
     if (min_depth_value < 1)
@@ -31,7 +52,7 @@ int min_depth(void)
     }
 
     // no limits in the endgame
-    if (p_ptr->on_the_run)
+    if (p_ptr->on_the_run || p_ptr->dungeon_pressure == 1)
     {
         min_depth_value = 0;
     }
