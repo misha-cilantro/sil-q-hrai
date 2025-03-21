@@ -464,6 +464,9 @@ extern void do_cmd_save_screen(void);
 extern void desc_art_fake(int a_idx);
 extern void apply_magic_fake(object_type* o_ptr);
 extern void do_cmd_knowledge(void);
+extern bool is_elf(byte_hack prace);
+extern bool is_dwarf(byte_hack prace);
+extern bool is_human(byte_hack prace);
 
 /* cmd5.c */
 extern void display_koff(int k_idx);

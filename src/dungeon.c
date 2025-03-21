@@ -2902,7 +2902,7 @@ static bool go_to_halls_elf(void)
 
 static void go_to_halls_dwarf(void)
 {
-
+    // pause_with_text(mandos_dwarf, 5, 15);
 }
 
 static void go_to_halls_human(void)
