@@ -5,7 +5,7 @@ great variety of choice.
 
 ## Sil-Q hrai
 
-hrai - Quenya for easy (probably, I only searched a little)
+*hrai* - Quenya for easy (probably, I only searched a little)
 
 I adore the gameplay of Sil-Q, but I'm terrible at it. I've created Sil-Q hrai
 as an easy mode version of Sil-Q so you can adjust difficulty and enjoy the 
