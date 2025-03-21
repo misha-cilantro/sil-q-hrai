@@ -5312,7 +5312,7 @@ const char mandos_human[][100]
           { "    Halls of Mandos." },
           { "But you only tarry here a while, for it is the" },
           { "  Gift of Men to leave the circles of Arda" },
-          { "    and travel to a place known only to Ilúvatar." },
+          { "    and travel to a place known only to Iluvatar." },
           { "Though your deeds were brave, the memories of Men" },
           { "  are short, and your doomed quest is soon forgotten." },
 
