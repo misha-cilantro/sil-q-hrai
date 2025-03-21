@@ -3155,9 +3155,19 @@ void play_game(bool new_game)
         /* Accidental Death */
         if (p_ptr->playing && p_ptr->is_dead)
         {
+            /* hrai: elven ressurection */
+            if (is_elf(p_ptr->prace))
+            {
+
+            }
+            else // flavor for mortal races
+            {
+                // hrai TODO
+            }
+
             /* Mega-Hack -- Allow player to cheat death */
-            if ((p_ptr->wizard || (p_ptr->noscore & 0x0008) || cheat_live)
-                && !get_check("Die? "))
+            // hrai TODO: remove all this, we allow for more fun cheating now /flex
+            if (FALSE)
             {
                 /* Mark savefile */
                 p_ptr->noscore |= 0x0001;

@@ -5074,8 +5074,6 @@ static void close_game_aux(void)
 
 /*
  * Close up the current game (player may or may not be dead)
- * 
- * hrai: elven races are allowed to ressurect
  *
  * Note that the savefile is not saved until the tombstone is
  * actually displayed and the player has a chance to examine

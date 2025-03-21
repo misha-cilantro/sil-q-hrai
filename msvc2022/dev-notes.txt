@@ -13,6 +13,14 @@ is the function that runs all the character setup stuff in order!
 
 Death is handled in files.c: close_game(void)
 
+The game loop is in dungeon.c: play_game(bool new_game)
+
+We can cheat death at 3156, just like wizard mode, for both types
+of cheating.
+
+elf race:
+(p_ptr->prace == 0) || (p_ptr->prace == 1)
+
 --
 
 p_ptr = the player pointer
