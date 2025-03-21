@@ -24,7 +24,6 @@ Desired features:
 
 - Choose dungeon pressure (1-5?) where 1 is no pressure, and 5 is Sil-Q pressure
   * save value in save game
-  * show the value in the player sheet
 
 - For the two elf races, allow resurrection on death. Start back at floor 0, with all experience but all items lost. (Mandos save.)
 
