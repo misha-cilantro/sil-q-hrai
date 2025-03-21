@@ -14,7 +14,7 @@ in EVERY. SINGLE. TIME.
 
 There are several dials to adjust difficulty:
 
-1. Dungeon pressure. (DONE)
+1. **Dungeon pressure.** (DONE)
    Sil-Q forces you lower and lower into the dungeon as you play so prevent
    grinding. But this is hrai, and we support a little grinding!
    
@@ -26,14 +26,14 @@ There are several dials to adjust difficulty:
    4 lowers pressure by 1/2.
    5 is standard Sil-Q pressure.
 
-2. Elven ressurection. (PLANNED)
+2. **Elven ressurection.** (PLANNED)
    The First Children do not leave the world on death, but go to the halls of Mandos
    where they may rest before bodily ressurecting in the world.
 
    This means when you die playing an elf you may choose to ressurect. You will start
    back on the first floor with all your skills etc., but your equipment will be lost.
 
-3. Restore to start of floor. (PLANNED)
+3. **Restore to start of floor.** (PLANNED)
    On character creation, choose whether to allow restoring to the start of the floor
    on death. Every time you start a floor, a save game is made that you can restore to.
 
