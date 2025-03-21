@@ -771,6 +771,9 @@ struct player_type
     s16b game_type; /* Whether this is a normal game (=0), tutorial (<0), puzzle
                        (>0) */
 
+    s16b dungeon_pressure; /* The level of pressure to go deeper.
+                              1 is no pressure, 5 is Sil-Q pressure. */ 
+
     s16b age; /* Character's age */
     s16b ht; /* Height */
     s16b wt; /* Weight */

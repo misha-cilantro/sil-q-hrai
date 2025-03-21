@@ -255,7 +255,7 @@ static void get_ahw_aux(void)
     p_ptr->wt += p_ptr->ht / 5;
 }
 
-/*
+/* 
  * Get the Age, Height and Weight.
  */
 static bool get_ahw(void)
@@ -1929,6 +1929,86 @@ extern bool gain_skills(void)
     return (accepted);
 }
 
+/*
+ * IN PROGRESS hrai
+ * Set the level of pressure forcing you lower 
+ * (1-5, 1 is no pressure, 5 is Sil-Q standard pressure)
+ */
+static bool get_difficulty(void)
+{
+    char query2;
+    int loopagain = TRUE;
+    int selection = 0;
+
+    while (loopagain == TRUE)
+    {
+        /* Erase screen */
+        clear_from(0);
+
+        put_str(
+            "Select dungeon pressure 1 - 5. Higher numbers force you lower faster.",
+            0, 0);
+        put_str("1 - no pressure, grind all you like until the breaking of "
+                "Morgoth's Ring and the remaking of Arda.",
+            1, 0);
+        put_str("5 - Sil-Q pressure. The darkness of Morgoth closes in; you "
+                "must be swift.",
+            2, 0);
+
+        /* Prompt */
+        Term_putstr(QUESTION_COL, INSTRUCT_ROW + 1, -1, TERM_SLATE,
+            "Enter defaults to 1, no pressure.");
+
+        Term_putstr(QUESTION_COL, INSTRUCT_ROW + 2, -1, TERM_SLATE,
+            "1 - 5?");
+
+        /* Query */
+        query2 = inkey();
+
+        if ((query2 == '\r') || (query2 == '\n') || (query2 == '1'))
+        {
+            selection = 1;
+        }
+
+        else if ((query2 == '2'))
+        {
+            selection = 2;
+        }
+
+        else if ((query2 == '3'))
+        {
+            selection = 3;
+        }
+
+        else if ((query2 == '4'))
+        {
+            selection = 4;
+        }
+
+        else if ((query2 == '5'))
+        {
+            selection = 5;
+        }
+
+        else if (query2 == ESCAPE)
+            return (FALSE);
+
+        else if (((query2 == 'Q') || (query2 == 'q')) && (turn == 0))
+            quit(NULL);
+
+        if (selection > 0 && selection < 6)
+        {
+            p_ptr->dungeon_pressure = selection;
+            
+            loopagain = FALSE;
+
+            p_ptr->redraw |= (PR_MISC);
+        }
+    }
+
+    return (TRUE);
+}
+
 #define BASE_COLUMN 7
 #define STAT_TITLE_ROW 14
 #define BASE_STAT_ROW 16
@@ -1958,6 +2038,9 @@ static bool player_birth_aux(void)
 
     /* Roll for age/height/weight */
     if (!get_ahw())
+        return (FALSE);
+
+    if (!get_difficulty())
         return (FALSE);
 
     /* Get a name, prepare savefile */

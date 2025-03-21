@@ -2,3 +2,31 @@ The function that determines minimum depth is
 
 int min_depth(void) in cmd2.c
 
+
+for menu stuff look at birth.c
+
+static bool get_ahw(void) in birth.c
+
+is a good reference for querying and showing stuff
+
+!!!!!
+static bool player_birth_aux(void)
+
+is the function that runs all the character setup stuff in order!
+
+--
+
+p_ptr = the player pointer
+
+--
+
+Desired features:
+
+- Choose dungeon pressure (1-5?) where 1 is no pressure, and 5 is Sil-Q pressure
+  * select difficulty
+  * set value in some global / player
+  * save value in save game
+
+- For the two elf races, allow resurrection on death. Start back at floor 0, with all experience but all items lost. (Mandos save.)
+
+- Restart floor on death. (Easy save.)
