@@ -3211,6 +3211,10 @@ void play_game(bool new_game)
         {
             // hrai: elves can ressurect, other races still get flavor text
             bool is_elven_ressurection = go_to_halls();
+            if (is_elven_ressurection)
+            {
+                // TODO
+            }
 
             /* Mega-Hack -- Allow player to cheat death */
             // hrai TODO: remove all this, we allow for more fun cheating now /flex
