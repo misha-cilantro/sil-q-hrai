@@ -5341,23 +5341,14 @@ const char mandos_elf[][100]
  * 
  * render_options_callback: pointer to a void function that takes no arguments; 
  *                          use this to render options however you want using 
- *                          Term_putstr or whatever.
+ *                          Term_putstr or whatever. Pass NULL to skip.
  * 
- * allowed_options: the allowed characters options to select
- * on_escape: character to return on escape
+ * allowed_options: the allowed characters options to select; if NULL, any option is allowed
+ * on_escape: character to return on escape; accepts NULL
  * 
  * return value: the char selected from allowed_options by the player
  */
-char query_with_text(const char desc[][100], int row, int col, const callback_no_arguments render_options_callback, const char allowed_options[10], const char on_escape)
-{
-    return '0';
-}
-
-/*
- * Show the poetry on entering Morgoth's Throne Room
- * hrai: also used on death
- */
-void pause_with_text(const char desc[][100], int row, int col)
+char query_with_text(const char desc[][100], int row, int col, const callback_no_arguments render_options_callback, const char* allowed_options, const char* on_escape)
 {
     char ch;
     int i = 0;
@@ -5405,4 +5396,15 @@ void pause_with_text(const char desc[][100], int row, int col)
 
     /* Load screen */
     screen_load();
+
+    return '0';
+}
+
+/*
+ * Show the poetry on entering Morgoth's Throne Room
+ * hrai: also used on death
+ */
+void pause_with_text(const char desc[][100], int row, int col)
+{
+    query_with_text(desc, row, col, NULL, NULL, NULL);
 }
