@@ -25,6 +25,8 @@ message_flush();
 
 Inventory dropping handled in object2.c: void inven_drop(int item, int amt) 
 
+Or use item destruction cmd3.c: void do_cmd_destroy(void)
+
 --
 
 p_ptr = the player pointer
