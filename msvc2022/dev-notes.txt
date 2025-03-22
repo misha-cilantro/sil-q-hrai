@@ -23,9 +23,9 @@ message_flush();
 
 --
 
-Inventory dropping handled in object2.c: void inven_drop(int item, int amt) 
+player_outfit()
 
-Or use item destruction cmd3.c: void do_cmd_destroy(void)
+need to recalculate everything after wiping inventory
 
 --
 
@@ -51,3 +51,5 @@ Desired features:
   
 
 - Restart floor on death. (Easy save.)
+  * actually would be MUCH easier to restart on a new floor, so will probably
+    just do that!

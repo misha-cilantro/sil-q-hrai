@@ -2926,7 +2926,7 @@ static void go_to_halls_human(void)
 
 /*
  * hrai: all character get flavor for going to the halls of mandos
- * elven characters can choose to bodily ressurect and restart
+ * elven characters can choose to bodily resurrect  and restart
  * the dungeon with all skills etc. but only starting items
  */
 static bool go_to_halls(void)
@@ -2947,6 +2947,115 @@ static bool go_to_halls(void)
     }
 
     return FALSE;
+}
+
+// hrai: wipe the player but restore stats, skills, etc.
+static void resurrect_player_wipe(void)
+{
+    int i;
+    char history[250];
+    int stat[A_MAX];
+
+    /* Backup the player choices */
+    // Initialized to soothe compilation warnings
+    byte prace = 0;
+    byte phouse = 0;
+    int age = 0;
+    int height = 0;
+    int weight = 0;
+
+    /* Backup the player choices */
+    prace = p_ptr->prace;
+    phouse = p_ptr->phouse;
+    age = p_ptr->age;
+    height = p_ptr->ht;
+    weight = p_ptr->wt;
+
+    for (i = 0; i < A_MAX; i++)
+    {
+        stat[i] = 0;
+    }
+
+    /* Restore the choices */
+    p_ptr->prace = prace;
+    p_ptr->phouse = phouse;
+    p_ptr->game_type = 0;
+    p_ptr->age = age;
+    p_ptr->ht = height;
+    p_ptr->wt = weight;
+    sprintf(p_ptr->history, "%s", history);
+    for (i = 0; i < A_MAX; i++)
+    {
+        p_ptr->stat_base[i] = stat[i];
+    }
+
+    /* Clear the inventory */
+    for (i = 0; i < INVEN_TOTAL; i++)
+    {
+        object_wipe(&inventory[i]);
+    }
+}
+
+/*
+ * hrai:
+ * Elven resurrection process, based largely on birth.c player_wipe() 
+ * We do not restore artifacts or reset objects.
+ * We DO allow finding the unique forge again.
+ */
+static void resurrect_elf(void) 
+{
+    int i;
+    p_ptr->is_dead = FALSE;
+
+    // Wipe the player so we don't have to fight a bunch of
+    // state flags, active abilities, etc.
+    // We just need to remember stats, skills, history, etc.
+    resurrect_player_wipe();
+
+    // Equip the character with their standard equipment
+    // TODO
+
+    // Feed the player
+    p_ptr->food = PY_FOOD_MAX - 1;
+
+    /* Reset the "monsters" */
+    for (i = 1; i < z_info->r_max; i++)
+    {
+        monster_race* r_ptr = &r_info[i];
+        monster_lore* l_ptr = &l_list[i];
+
+        /* Hack -- Reset the counter */
+        r_ptr->cur_num = 0;
+
+        /* Hack -- Reset the max counter */
+        r_ptr->max_num = 100;
+
+        /* Hack -- Reset the max counter */
+        if (r_ptr->flags1 & (RF1_UNIQUE))
+            r_ptr->max_num = 1;
+    }
+
+    // reset the stair info
+    p_ptr->stairs_taken = 0;
+    p_ptr->staircasiness = 0;
+
+    // No vengeance at birth
+    p_ptr->vengeance = 0;
+
+    // Morgoth unhurt
+    p_ptr->morgoth_state = 0;
+
+    p_ptr->thrall_quest = QUEST_NOT_STARTED;
+
+    // allow generating the unique forge again, but don't
+    // replay the fiction
+    p_ptr->unique_forge_made = FALSE;
+
+    // reset greater vaults
+    for (i = 0; i < MAX_GREATER_VAULTS; i++)
+    {
+        p_ptr->greater_vaults[i] = 0;
+    }    
 }
 
 /*
@@ -3206,16 +3315,29 @@ void play_game(bool new_game)
         /* XXX XXX XXX */
         message_flush();
 
-        /* Accidental Death */
+        /* 
+        * hrai: Accidental death death fiction, elven resurrection, and
+        * floor resurrection.
+        * 
+        * Do this here so we can change the is_dead flag and simply skip
+        * the actual accidental death handler below without mangled flow
+        * control.
+        */
         if (p_ptr->playing && p_ptr->is_dead)
         {
             // hrai: elves can ressurect, other races still get flavor text
             bool is_elven_ressurection = go_to_halls();
             if (is_elven_ressurection)
-            {
-                // TODO
-            }
+                resurrect_elf();
+        }
 
+        /* 
+        * Accidental Death 
+        * hrai: if we got here, player could not or chose not to
+        * resurrect.
+        */
+        if (p_ptr->playing && p_ptr->is_dead)
+        {
             /* Mega-Hack -- Allow player to cheat death */
             // hrai TODO: remove all this, we allow for more fun cheating now /flex
             if (FALSE)
