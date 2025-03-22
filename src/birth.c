@@ -573,7 +573,7 @@ static void player_wipe(void)
  *
  * Having an item identifies it and makes the player "aware" of its purpose.
  */
-static void player_outfit(void)
+void player_outfit(void)
 {
     int i, slot, inven_slot;
     const start_item* e_ptr;

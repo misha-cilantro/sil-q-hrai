@@ -261,6 +261,7 @@ extern bool use_background_colors;
 /* birth.c */
 extern void player_birth(void);
 extern bool gain_skills(void);
+extern void player_outfit(void);
 
 /* cave.c */
 extern int distance(int y1, int x1, int y2, int x2);

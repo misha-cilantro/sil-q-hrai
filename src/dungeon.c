@@ -2955,44 +2955,91 @@ static void resurrect_player_wipe(void)
     int i;
     char history[250];
     int stat[A_MAX];
+    int skill[S_MAX];
+    byte innate_ability[S_MAX][ABILITIES_MAX];
 
-    /* Backup the player choices */
-    // Initialized to soothe compilation warnings
-    byte prace = 0;
-    byte phouse = 0;
-    int age = 0;
-    int height = 0;
-    int weight = 0;
+    /* Clear the inventory */
+    for (i = 0; i < INVEN_TOTAL; i++)
+    {
+        object_wipe(&inventory[i]);
+    }
 
-    /* Backup the player choices */
-    prace = p_ptr->prace;
-    phouse = p_ptr->phouse;
-    age = p_ptr->age;
-    height = p_ptr->ht;
-    weight = p_ptr->wt;
+    /* Backup the player values we keep */
+    byte prace = p_ptr->prace;
+    byte phouse = p_ptr->phouse;
+    int age = p_ptr->age;
+    int height = p_ptr->ht;
+    int weight = p_ptr->wt;
+    
+    int new_exp = p_ptr->new_exp;
+    int exp = p_ptr->exp;
+    int encounter_exp = p_ptr->encounter_exp;
+    int kill_exp = p_ptr->kill_exp;
+    int descent_exp = p_ptr->descent_exp;
+    int ident_exp = p_ptr->ident_exp;
+
+    int max_hp = p_ptr->mhp;
+    int max_sp = p_ptr->msp;
 
     for (i = 0; i < A_MAX; i++)
     {
         stat[i] = 0;
     }
 
-    /* Restore the choices */
+    for (i = 0; i < S_MAX; i++)
+    {
+        skill[i] = 0;
+    }
+
+    for (i = 0; i < S_MAX; i++)
+    {
+        for (int j = 0; j < ABILITIES_MAX; j++)
+        {
+            innate_ability[i][j] = p_ptr->innate_ability[i][j];
+        }
+    }
+
+    /* Wipe the player */
+    (void)WIPE(p_ptr, player_type);
+
+    /* Restore the player's choices, stat, skills, exp */
     p_ptr->prace = prace;
     p_ptr->phouse = phouse;
     p_ptr->game_type = 0;
     p_ptr->age = age;
     p_ptr->ht = height;
     p_ptr->wt = weight;
-    sprintf(p_ptr->history, "%s", history);
+
+    p_ptr->new_exp = new_exp;
+    p_ptr->exp = exp;
+    p_ptr->encounter_exp = encounter_exp;
+    p_ptr->kill_exp = kill_exp;
+    p_ptr->descent_exp = descent_exp;
+    p_ptr->ident_exp = ident_exp;
+
+    p_ptr->mhp = max_hp;
+    p_ptr->msp = max_sp;    
+
+    // Restore stats
     for (i = 0; i < A_MAX; i++)
     {
         p_ptr->stat_base[i] = stat[i];
     }
 
-    /* Clear the inventory */
-    for (i = 0; i < INVEN_TOTAL; i++)
+    // Restore skills
+    for (i = 0; i < S_MAX; i++)
     {
-        object_wipe(&inventory[i]);
+        p_ptr->skill_base[i] = skill[i];
+    }
+
+    /* Restore abilities */
+    for (i = 0; i < S_MAX; i++)
+    {
+        for (int j = 0; j < ABILITIES_MAX; j++)
+        {
+            p_ptr->innate_ability[i][j] = innate_ability[i][j];
+            p_ptr->have_ability[i][j] = innate_ability[i][j];
+        }
     }
 }
 
@@ -3009,11 +3056,14 @@ static void resurrect_elf(void)
 
     // Wipe the player so we don't have to fight a bunch of
     // state flags, active abilities, etc.
-    // We just need to remember stats, skills, history, etc.
     resurrect_player_wipe();
 
+    // Reset current depth
+    p_ptr->depth = 1;
+    p_ptr->max_depth = 1;
+
     // Equip the character with their standard equipment
-    // TODO
+    player_outfit();
 
     // Feed the player
     p_ptr->food = PY_FOOD_MAX - 1;
