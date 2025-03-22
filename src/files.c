@@ -3303,13 +3303,13 @@ void do_cmd_suicide(void)
     prt("", 0, 0);
     if (ch != '@')
         return;
-#endif
-
-    /* Commit suicide */
-    p_ptr->is_dead = TRUE;
 
     /* Stop playing */
     p_ptr->playing = FALSE;
+#endif
+
+    /* Commit suicide */
+    p_ptr->is_dead = TRUE;    
 
     /* Leaving */
     p_ptr->leaving = TRUE;
