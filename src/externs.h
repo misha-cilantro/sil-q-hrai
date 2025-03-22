@@ -1087,6 +1087,9 @@ extern const char mandos_elf[][100];
 extern const char mandos_dwarf[][100];
 extern const char mandos_human[][100];
 extern void pause_with_text(const char desc[][100], int row, int col);
+extern char query_with_text(const char desc[][100], int row, int col,
+    const callback_no_arguments render_options_callback,
+    const char* allowed_options);
 
 /*
  * Hack -- conditional (or "bizarre") externs

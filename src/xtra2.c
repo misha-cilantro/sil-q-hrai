@@ -5344,11 +5344,10 @@ const char mandos_elf[][100]
  *                          Term_putstr or whatever. Pass NULL to skip.
  * 
  * allowed_options: the allowed characters options to select; if NULL, any option is allowed
- * on_escape: character to return on escape; accepts NULL
  * 
  * return value: the char selected from allowed_options by the player
  */
-char query_with_text(const char desc[][100], int row, int col, const callback_no_arguments render_options_callback, const char* allowed_options, const char* on_escape)
+char query_with_text(const char desc[][100], int row, int col, const callback_no_arguments render_options_callback, const char* allowed_options)
 {
     char ch;
     int i = 0;
@@ -5369,7 +5368,14 @@ char query_with_text(const char desc[][100], int row, int col, const callback_no
         i++;
     }
 
+    /* Allow caller to write options text to screen */
+    if (render_options_callback != NULL)
+    {
+        render_options_callback();
+    }
+
     /* Interact until done */
+    char selected_char = 0;
     while (1)
     {
         /* Prompt */
@@ -5377,14 +5383,31 @@ char query_with_text(const char desc[][100], int row, int col, const callback_no
         ch = inkey();
         hide_cursor = FALSE;
 
-        /* Press any key */
-        if (ch != EOF)
-            break;
+        if (allowed_options == NULL)
+        {
+            /* Press any key */
+            if (ch != EOF)
+                break;
+        }
+        else
+        {
+            int len = strlen(allowed_options);
+            for (int i = 0; i < len; i++)
+            {
+                char c = allowed_options[i];
+                if (ch == c)
+                {
+                    selected_char = c;
+                    goto exit_loop;
+                }
+            }
+        }
 
         /* Flush messages */
         message_flush();
     }
 
+exit_loop:
     for (j = row; j <= row; j++)
     {
         c_put_str(TERM_WHITE,
@@ -5397,7 +5420,7 @@ char query_with_text(const char desc[][100], int row, int col, const callback_no
     /* Load screen */
     screen_load();
 
-    return '0';
+    return selected_char;
 }
 
 /*
@@ -5406,5 +5429,5 @@ char query_with_text(const char desc[][100], int row, int col, const callback_no
  */
 void pause_with_text(const char desc[][100], int row, int col)
 {
-    query_with_text(desc, row, col, NULL, NULL, NULL);
+    query_with_text(desc, row, col, NULL, NULL);
 }

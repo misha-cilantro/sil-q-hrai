@@ -2895,9 +2895,23 @@ static void death_knowledge(void)
     handle_stuff();
 }
 
+void wr_halls_elf_options(void)
+{
+    int row = 15;
+    int col = 1;
+
+    c_put_str(TERM_L_BLUE, "r", row, col);
+    put_str("eturn to Arda", row, col + 1);
+    
+    row++;
+    c_put_str(TERM_L_BLUE, "a", row, col);
+    put_str("bandon your quest", row, col + 1);
+}
+
 static bool go_to_halls_elf(void)
 {
-    return FALSE;
+    char c = query_with_text(mandos_elf, 5, 15, &wr_halls_elf_options, "rw"); // return/resurrect or await
+    return c == 'r';
 }
 
 static void go_to_halls_dwarf(void)
