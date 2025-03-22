@@ -15,17 +15,9 @@ Death is handled in files.c: close_game(void)
 
 The game loop is in dungeon.c: play_game(bool new_game)
 
-We can cheat death at 3156, just like wizard mode, for both types
-of cheating.
 
-msg_print("You invoke wizard mode and cheat death.");
-message_flush();
-
---
-
-player_outfit()
-
-need to recalculate everything after wiping inventory
+Crash/inf loop is in:
+static void fix_player_0(void)
 
 --
 
