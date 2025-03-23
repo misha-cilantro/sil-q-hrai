@@ -2979,6 +2979,7 @@ static void resurrect_player_wipe(void)
     int ident_exp = p_ptr->ident_exp;
 
     int max_hp = p_ptr->mhp;
+    calc_voice();
     int max_sp = p_ptr->msp;
 
     int pressure = p_ptr->dungeon_pressure;
@@ -3021,7 +3022,11 @@ static void resurrect_player_wipe(void)
     p_ptr->ident_exp = ident_exp;
 
     p_ptr->mhp = max_hp;
+    p_ptr->chp = max_hp;
+    
     p_ptr->msp = max_sp;
+    p_ptr->csp = max_sp;
+
 
     p_ptr->dungeon_pressure = pressure;
     p_ptr->elven_res_count = res_count + 1;
