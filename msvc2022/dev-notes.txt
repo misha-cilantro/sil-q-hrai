@@ -19,6 +19,9 @@ The game loop is in dungeon.c: play_game(bool new_game)
 Crash/inf loop is in:
 static void fix_player_0(void)
 
+if (p_ptr->depth >= min_depth()) is where the elf rez crash/loop happens
+also we probably should reset the turn to 0?
+
 --
 
 p_ptr = the player pointer

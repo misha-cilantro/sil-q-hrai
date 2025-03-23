@@ -751,10 +751,7 @@ static errr rd_extra(void)
     /* Age/Height/Weight */
     rd_s16b(&p_ptr->age);
     rd_s16b(&p_ptr->ht);
-    rd_s16b(&p_ptr->wt);
-
-    /* Dungeon pressure */
-    rd_s16b(&p_ptr->dungeon_pressure);
+    rd_s16b(&p_ptr->wt);    
 
     /* Read the stat info */
     for (i = 0; i < A_MAX; i++)
@@ -968,6 +965,13 @@ static errr rd_extra(void)
 
     /* Min depth counter */
     rd_s32b(&min_depth_counter);
+
+    /*** hrai fields ***/
+    
+    rd_s16b(&p_ptr->dungeon_pressure);
+    rd_s16b(&p_ptr->elven_res_count);
+
+    /*** end hrai fields ***/
 
     return (0);
 }

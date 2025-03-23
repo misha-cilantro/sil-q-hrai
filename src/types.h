@@ -769,10 +769,7 @@ struct player_type
     byte phouse; /* House index */
 
     s16b game_type; /* Whether this is a normal game (=0), tutorial (<0), puzzle
-                       (>0) */
-
-    s16b dungeon_pressure; /* The level of pressure to go deeper.
-                              1 is no pressure, 5 is Sil-Q pressure. */ 
+                       (>0) */    
 
     s16b age; /* Character's age */
     s16b ht; /* Height */
@@ -1054,6 +1051,12 @@ struct player_type
 
     s32b unused2; // Room for expansion without breaking savefiles
     s32b unused3; // Room for expansion without breaking savefiles
+
+    /* hrai fields */
+    s16b dungeon_pressure; /* The level of pressure to go deeper.
+                              1 is no pressure, 5 is Sil-Q pressure. */
+
+    s16b elven_res_count; // number of times player has used elven resurrection
 };
 
 /*

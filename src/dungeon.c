@@ -2981,6 +2981,9 @@ static void resurrect_player_wipe(void)
     int max_hp = p_ptr->mhp;
     int max_sp = p_ptr->msp;
 
+    int pressure = p_ptr->dungeon_pressure;
+    int res_count = p_ptr->elven_res_count;
+
     for (i = 0; i < A_MAX; i++)
     {
         stat[i] = 0;
@@ -3018,7 +3021,10 @@ static void resurrect_player_wipe(void)
     p_ptr->ident_exp = ident_exp;
 
     p_ptr->mhp = max_hp;
-    p_ptr->msp = max_sp;    
+    p_ptr->msp = max_sp;
+
+    p_ptr->dungeon_pressure = pressure;
+    p_ptr->elven_res_count = res_count + 1;
 
     // Restore stats
     for (i = 0; i < A_MAX; i++)
@@ -3105,7 +3111,7 @@ static void resurrect_elf(void)
     for (i = 0; i < MAX_GREATER_VAULTS; i++)
     {
         p_ptr->greater_vaults[i] = 0;
-    }    
+    }
 }
 
 /*

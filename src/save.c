@@ -766,10 +766,7 @@ static void wr_extra(void)
     /* Age/Height/Weight */
     wr_s16b(p_ptr->age);
     wr_s16b(p_ptr->ht);
-    wr_s16b(p_ptr->wt);
-
-    /* Dungeon pressure */
-    wr_s16b(p_ptr->dungeon_pressure);
+    wr_s16b(p_ptr->wt);    
 
     /* Dump the stats (maximum and current) */
     for (i = 0; i < A_MAX; ++i)
@@ -958,6 +955,13 @@ static void wr_extra(void)
     wr_s32b(p_ptr->unused3);
 
     wr_s32b(min_depth_counter);
+
+    /*** hrai fields ***/
+
+    wr_s16b(p_ptr->dungeon_pressure);
+    wr_s16b(p_ptr->elven_res_count);
+
+    /*** end hrai fields ***/
 
     updatecharinfoS();
 }
