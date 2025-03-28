@@ -3,7 +3,6 @@ TODO:
 - Test elven resurrection for real
   * Stats seems to be lost
   * Powers that were on should be switched back on
-  * bug: cannot abandon quest
   * elven res only works once
 
 - Write elven res to character sheet (below dungeon pressure)
@@ -11,28 +10,6 @@ TODO:
 - Ask to turn on floor res
 - Floor res
 - Write floor res to score
-
----
-
-Controls/commands in util.c request_command() and then inkey()
-
-dungeon.c process_command()
-
-Looks like you get keys in order. So right is 59. Alt is one of the numbers beforehand. (Why are there three??)
-
-Ctrl-Right: 7, 47
-Right: 59
-Alt-Right: 7, 102, 59
-Alt-Left: 7, 102, 59
-Left: 59
-
-59 is a ;, which is a walk command.
-
-7 is \a
-
-Hack: save a bool as command-alt, clear it out after any command is handled.
-
-Somehow Ctrl-dir is being changed to a '/' command.
 
 ---
 
