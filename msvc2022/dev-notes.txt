@@ -1,10 +1,5 @@
 TODO:
 
-- Test elven resurrection for real
-  * Stats seems to be lost
-  * Powers that were on should be switched back on
-  * elven res only works once
-
 - Write elven res to character sheet (below dungeon pressure)
 - Adjust score by elven res count
 - Ask to turn on floor res
