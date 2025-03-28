@@ -2955,6 +2955,7 @@ static void resurrect_player_wipe(void)
     int stat[A_MAX];
     int skill[S_MAX];
     byte innate_ability[S_MAX][ABILITIES_MAX];
+    byte activeated_ability[S_MAX][ABILITIES_MAX];
 
     /* Clear the inventory */
     for (i = 0; i < INVEN_TOTAL; i++)
@@ -2985,12 +2986,12 @@ static void resurrect_player_wipe(void)
 
     for (i = 0; i < A_MAX; i++)
     {
-        stat[i] = 0;
+        stat[i] = p_ptr->stat_base[i];
     }
 
     for (i = 0; i < S_MAX; i++)
     {
-        skill[i] = 0;
+        skill[i] = p_ptr->skill_base[i];
     }
 
     for (i = 0; i < S_MAX; i++)
@@ -2998,6 +2999,7 @@ static void resurrect_player_wipe(void)
         for (int j = 0; j < ABILITIES_MAX; j++)
         {
             innate_ability[i][j] = p_ptr->innate_ability[i][j];
+            activeated_ability[i][j] = p_ptr->active_ability[i][j];
         }
     }
 
@@ -3048,6 +3050,7 @@ static void resurrect_player_wipe(void)
         {
             p_ptr->innate_ability[i][j] = innate_ability[i][j];
             p_ptr->have_ability[i][j] = innate_ability[i][j];
+            p_ptr->active_ability[i][j] = activeated_ability[i][j];
         }
     }
 }
@@ -3115,6 +3118,8 @@ static void resurrect_elf(void)
     {
         p_ptr->greater_vaults[i] = 0;
     }
+
+    p_ptr->playing = TRUE;
 }
 
 /*
