@@ -768,6 +768,8 @@ static void process_command(void)
 
 #endif /* ALLOW_REPEAT */
 
+    bool just_set_alt = FALSE;
+
     /* Parse the command */
     switch (p_ptr->command_cmd)
     {
@@ -1044,13 +1046,6 @@ static void process_command(void)
     case 'E':
     {
         do_cmd_eat_food(NULL, 0);
-        break;
-    }
-
-    /* Fire an arrow from the 1st quiver */
-    case 'f':
-    {
-        do_cmd_fire(1);
         break;
     }
 
@@ -2161,6 +2156,9 @@ static void process_player(void)
         /* Make a lot of noise */
         monster_perception(TRUE, FALSE, -10);
     }
+
+    /* hrai: clear alt command now that all commands processed. */
+    p_ptr->command_alt = 0;
 
     // update player noise
     update_flow(p_ptr->py, p_ptr->px, FLOW_PLAYER_NOISE);

@@ -3259,7 +3259,7 @@ bool do_cmd_walk_test(int y, int x)
  */
 void do_cmd_walk(void)
 {
-    int y, x, dir;
+    int y, x, dir;    
 
     /* Get a direction (or abort) */
     if (!get_rep_dir(&dir))

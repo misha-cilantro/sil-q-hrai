@@ -5028,6 +5028,27 @@ bool get_aim_dir(int* dp, int range)
     return (TRUE);
 }
 
+static int mutate_dir_diagonally(int dir)
+{
+    switch (dir)
+    {
+    case 4:
+        return 7;
+
+    case 8:
+        return 9;
+
+    case 6:
+        return 3;
+
+    case 2:
+        return 1;
+
+    default:
+        return dir;
+    }
+}
+
 /*
  * Request a "movement" direction (1,2,3,4,5,6,7,8,9) from the user.
  *
@@ -5059,7 +5080,7 @@ bool get_rep_dir(int* dp)
     (*dp) = 0;
 
     /* Global direction */
-    dir = p_ptr->command_dir;
+    dir = p_ptr->command_dir;    
 
     /* Get a direction */
     while (!dir)
@@ -5073,6 +5094,12 @@ bool get_rep_dir(int* dp)
 
         /* Convert keypress into a direction */
         dir = target_dir(ch);
+
+        /* hrai: alt movement, mutate cardinal movement clockwise into diagonals */
+        if (p_ptr->command_alt >= 2)
+        {
+            dir = mutate_dir_diagonally(dir);
+        }
 
         /* Oops */
         if (!dir)

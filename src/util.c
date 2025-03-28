@@ -4161,6 +4161,12 @@ void request_command(void)
         if (ch == '\0')
             continue;
 
+        /* hrai hack: set alt key usage */
+        if (ch == '\a' || ch == 'f')
+        {
+            p_ptr->command_alt += 1;
+        }
+
         /* Use command */
         p_ptr->command_cmd = ch;
 

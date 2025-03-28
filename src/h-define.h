@@ -95,6 +95,8 @@
 /*
  * Hack -- allow use of "ASCII" and "EBCDIC" for "indexes", "digits",
  * and "Control-Characters".
+ * 
+ * Hrai: adds "Alt-Characters".
  *
  * Note that all "index" values must be "lowercase letters", while
  * all "digits" must be "digits".  Control characters can be made
@@ -114,6 +116,7 @@
 #define D2I(X) ((X) - '0')
 #define I2D(X) ((X) + '0')
 #define KTRL(X) ((X)&0x1F)
+#define ALT(X) ((X) | 0x80)
 #define UN_KTRL(X) ((X) + 64)
 #define ESCAPE '\033'
 #endif
