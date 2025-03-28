@@ -46,6 +46,15 @@ a Serious Business Roguelike player (like me!) :)
 (I beat Angband as a teen using my brother's save game backup batch file. Max cheat.
 Still one of my iconic childhood gaming experiences, idc. Good gameplay is good gameplay.)
 
+##
+
+Alt-arrow movement.
+
+I use a small keyboard without a numbpad for chronic pain/ergo reasons. Also, people use
+laptops. So I've hacked in Alt-arrow movement keys: any cardinal direction with the Alt
+key pressed mutates clockwise to a diagonal movement. So Alt-left becomes a move to the
+north-west (1 on the numpad).
+
 ## Compiling Instructions
 
 Compiling Sil-Q is not very difficult, and has been tested on Windows, Linux, and OS X.
