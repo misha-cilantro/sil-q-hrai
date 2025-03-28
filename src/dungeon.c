@@ -2908,7 +2908,7 @@ void wr_halls_elf_options(void)
 
 static bool go_to_halls_elf(void)
 {
-    char c = query_with_text(mandos_elf, 5, 15, &wr_halls_elf_options, "ra"); // return/resurrect or await
+    char c = query_with_text(mandos_elf, 5, 15, &wr_halls_elf_options, "ra"); // return/resurrect or abandon
     return c == 'r';
 }
 
