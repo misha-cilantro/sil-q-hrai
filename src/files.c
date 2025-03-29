@@ -1642,7 +1642,7 @@ static void display_player_misc_info(void)
         /* Title */
         put_str("House", 4, 1);
         c_put_str(TERM_L_BLUE, c_name + hp_ptr->short_name, 4, 8);
-    }    
+    }
 
     /* Dungeon Pressure */
     if (p_ptr->dungeon_pressure)
@@ -1662,6 +1662,7 @@ static void display_player_misc_info(void)
         display_hrai_value(
             1, 6, "Floor resurrection: ", p_ptr->floor_res_count, TERM_L_BLUE);
     }
+}
 
 /*
  * Special display, part 2b
