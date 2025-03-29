@@ -1611,6 +1611,20 @@ static void display_player_flag_info(void)
 }
 
 /*
+ * Displays text and an int value like so:
+ * Some intro txt: nn
+ */
+static void display_hrai_value(int x, int y, cptr txt, int value, int term_color) 
+{ 
+    char buf[80];
+    sprintf(buf, "%2d", value);
+
+    Term_putstr(x, y, -1, term_color, txt);
+    Term_putstr(x + strlen(txt), y, -1, term_color, buf);
+}
+
+
+/*
  * Special display, part 2a
  */
 static void display_player_misc_info(void)
@@ -1633,16 +1647,21 @@ static void display_player_misc_info(void)
     /* Dungeon Pressure */
     if (p_ptr->dungeon_pressure)
     {
-        cptr txt = "Dungeon pressure: ";
-        
-        char buf[80];
-        sprintf(buf, "%2d", p_ptr->dungeon_pressure);
-        
-        Term_putstr(1, 5, -1, TERM_L_UMBER, txt);
-        Term_putstr(
-            strlen(txt), 5, -1, TERM_L_UMBER, buf);
+        display_hrai_value(
+            1, 5, "Dungeon pressure: ", p_ptr->dungeon_pressure, TERM_L_UMBER);
     }
-}
+
+    /* Ressurections */
+    if (p_ptr->use_elven_res && p_ptr->elven_res_count > 0)
+    {
+        display_hrai_value(
+            1, 6, "Elven resurrection: ", p_ptr->elven_res_count, TERM_L_BLUE);
+    }
+    else if (p_ptr->floor_res_count > 0)
+    {
+        display_hrai_value(
+            1, 6, "Floor resurrection: ", p_ptr->floor_res_count, TERM_L_BLUE);
+    }
 
 /*
  * Special display, part 2b
