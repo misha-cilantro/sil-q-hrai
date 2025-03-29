@@ -3934,6 +3934,17 @@ extern void display_single_score(
     {
         c_put_str(TERM_L_DARK, "         V", row + 4, col);
     }
+    
+    /* hrai: Dungeon pressure and elven resurrections */
+    strnfmt(out_val, sizeof(out_val), "Dungeon pressure: %d", the_score->dungeon_pressure);
+    c_put_str(TERM_L_UMBER, out_val, row + 7, col);
+
+    if (is_elf(p_ptr->prace))
+    {
+        strnfmt(out_val, sizeof(out_val), "Elven resurrections: %d",
+            the_score->elven_res_count);
+        c_put_str(TERM_L_BLUE, out_val, row + 8, col);
+    }
 }
 
 /*
@@ -4183,6 +4194,12 @@ static errr create_score(high_score* the_score)
     {
         strnfmt(the_score->escaped, sizeof(the_score->escaped), "f");
     }
+
+    /* Dungeon pressure and elven res count */
+    strnfmt(the_score->dungeon_pressure, sizeof(the_score->dungeon_pressure),
+        "%d", p_ptr->dungeon_pressure);
+    strnfmt(the_score->elven_res_count, sizeof(the_score->elven_res_count),
+        "%d", p_ptr->elven_res_count);
 
     return (0);
 }

@@ -26,22 +26,16 @@ There are several dials to adjust difficulty:
    4 lowers pressure by 1/2.
    5 is standard Sil-Q pressure.
 
-2. **Elven resurrection.** (IN PROGRESS)
+2. **Elven resurrection.** (DONE, but minimally tested)
    The First Children do not leave the world on death, but go to the halls of Mandos
    where they may rest before bodily ressurecting in the world.
 
    This means when you die playing an elf you may choose to resurrect. You will start
    back on the first floor with all your skills etc., but your equipment will be lost.
 
-3. **Restore to start of floor.** (PLANNED)
-   On character creation, choose whether to allow restoring to the start of the floor
-   on death. Every time you start a floor, a save game is made that you can restore to.
-
-   This option overrides elven ressurection.
-
-For faireness, your dungeon pressure, number of elven ressurections, and/or restore
-on death is recorded on your character sheet so that everyone knows you're a not
-a Serious Business Roguelike player (like me!) :)
+For faireness, your dungeon pressure and number of elven resurrections is 
+recorded on your character sheet so that everyone knows you're a not
+a Serious Business Roguelike player (like me!) They also affect your score. :)
 
 (I beat Angband as a teen using my brother's save game backup batch file. Max cheat.
 Still one of my iconic childhood gaming experiences, idc. Good gameplay is good gameplay.)

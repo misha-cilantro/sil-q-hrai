@@ -1100,6 +1100,10 @@ struct high_score
     char silmarils[2]; /* Number of Silmarils (number) */
     char morgoth_slain[2]; /* Has player slain Morgoth (t/f) */
     char escaped[2]; /* Has player escaped (t/f) */
+
+    // hrai
+    char dungeon_pressure[2]; // dungeon pressure value (number)
+    char elven_res_count[2]; // number of elven resurrections (number)
 };
 
 // A type to contain information on a combat roll for printing
