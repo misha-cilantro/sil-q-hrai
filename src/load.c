@@ -969,9 +969,7 @@ static errr rd_extra(void)
     /*** hrai fields ***/
     
     rd_s16b(&p_ptr->dungeon_pressure);
-    rd_byte(&p_ptr->res_type);
     rd_s16b(&p_ptr->elven_res_count);
-    rd_s16b(&p_ptr->floor_res_count);
 
     /*** end hrai fields ***/
 

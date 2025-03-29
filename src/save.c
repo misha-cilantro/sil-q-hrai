@@ -959,9 +959,7 @@ static void wr_extra(void)
     /*** hrai fields ***/
 
     wr_s16b(p_ptr->dungeon_pressure);
-    wr_byte(p_ptr->res_type);
     wr_s16b(p_ptr->elven_res_count);
-    wr_s16b(p_ptr->floor_res_count);
 
     /*** end hrai fields ***/
 

@@ -1930,11 +1930,11 @@ extern bool gain_skills(void)
 }
 
 /*
- * IN PROGRESS hrai
+ * hrai:
  * Set the level of pressure forcing you lower 
  * (1-5, 1 is no pressure, 5 is Sil-Q standard pressure)
  */
-static bool get_difficulty(void)
+static bool get_dungeon_pressure(void)
 {
     char query2;
     int loopagain = TRUE;
@@ -2043,7 +2043,10 @@ static bool player_birth_aux(void)
     if (!get_ahw())
         return (FALSE);
 
-    if (!get_difficulty())
+    if (!get_dungeon_pressure())
+        return (FALSE);
+
+    if (!get_resurrection_type())
         return (FALSE);
 
     /* Get a name, prepare savefile */
