@@ -1652,12 +1652,12 @@ static void display_player_misc_info(void)
     }
 
     /* Ressurections */
-    if (p_ptr->use_elven_res && p_ptr->elven_res_count > 0)
+    if (p_ptr->res_type == 1 && p_ptr->elven_res_count > 0)
     {
         display_hrai_value(
             1, 6, "Elven resurrection: ", p_ptr->elven_res_count, TERM_L_BLUE);
     }
-    else if (p_ptr->floor_res_count > 0)
+    else if (p_ptr->res_type == 2 && p_ptr->floor_res_count > 0)
     {
         display_hrai_value(
             1, 6, "Floor resurrection: ", p_ptr->floor_res_count, TERM_L_BLUE);

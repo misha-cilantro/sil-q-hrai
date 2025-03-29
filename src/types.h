@@ -1057,7 +1057,7 @@ struct player_type
     s16b dungeon_pressure; /* The level of pressure to go deeper.
                               1 is no pressure, 5 is Sil-Q pressure. */
 
-    bool use_elven_res;
+    byte res_type; // 0 - none, 1 - elven res, 2 - floor res
     s16b elven_res_count; // number of times player has used elven resurrection
     s16b floor_res_count; // number of times player has used floor ressurection
 };
